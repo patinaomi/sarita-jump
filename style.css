@@ -1,0 +1,24 @@
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    background-color: rgb(249, 215, 250);
+    height: 100vh;
+}
+
+.principal {
+    display: flex;
+    flex-direction: column;
+}
+
+.principal-titulo {
+    text-align: center;
+}
+
+.conteudo {
+    display: flex;
+    flex-direction: column;
+}
