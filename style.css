@@ -10,8 +10,10 @@ body {
 }
 
 .principal {
-    display: flex;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin: 2% 3%;
 }
 
 .principal-titulo {
@@ -20,5 +22,25 @@ body {
 
 .conteudo {
     display: flex;
+    flex-direction: row;
+    
+}
+
+.conteudo-signo {
+    display: flex;
     flex-direction: column;
+    wid
+}
+
+.imagem-signo {
+    padding: 200px;
+    background-color: aliceblue;
+    border-radius: 200px;
+    width: 10%;
+}
+
+footer {
+    background-color: aliceblue;
+    padding: 80px;
+    text-align: center;
 }
