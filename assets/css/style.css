@@ -1,48 +1,62 @@
 * {
-    box-sizing: border-box;
-    padding: 0;
     margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-body {
-    background-color: rgb(249, 215, 250);
-    height: 100vh;
+.game-board {
+    width: 80%;
+    height: 500px;
+    border: 1px solid #333;
+    margin: 0 auto;
+    position: relative;
+
+    /* pra tudo que sair do quadro não aparecer mais na tela */
+    overflow: hidden;
 }
 
-.principal {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  margin: 4% 8%;
+.monster {
+    position: absolute;
+
+    /* pra o monstro ficar lá embaixo */
+    bottom: 0;
+    animation: monster-animation 2s infinite linear;
 }
 
-.principal-titulo {
-    text-align: center;
+.sarita {
+    position: absolute;
+    bottom: 0;
 }
 
-.conteudo {
-    display: flex;
-    flex-direction: column;
-    align-content: center;
-    justify-content: center;
-    
+.jump {
+    animation: sarita-jump 700ms ease-out;
 }
 
-.conteudo-signo {
-    display: flex;
-    flex-direction: row;
-    wid
+@keyframes monster-animation {
+    from {
+        /* pra o monstro começar fora da tela, 64px é o tamanho dele */
+        right: -64px;
+    }
+
+    to {
+        right: 100%;
+    }
 }
 
-.imagem-signo {
-    padding: 200px;
-    background-color: aliceblue;
-    border-radius: 200px;
-    width: 10%;
-}
-
-footer {
-    background-color: aliceblue;
-    padding: 80px;
-    text-align: center;
+@keyframes sarita-jump {
+    0% {
+        bottom: 0;
+    }
+    40% {
+        bottom: 100px;
+    }
+    50% {
+        bottom: 110px
+    }
+    60% {
+        bottom: 80px;
+    }
+    100% {
+        bottom: 0;
+    }
 }
