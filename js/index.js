@@ -1,16 +1,19 @@
 const sarita = document.querySelector('.sarita');
 const monster = document.querySelector('.monster');
 let isJumping = false;
+let isAlive = true;
 
 const jump = () => {
-    if (isJumping) return; //Pra Sarita não ficar pulando várias vezes
+    if (isJumping || !isAlive) return; // Impede pulo se já estiver pulando ou morta
     isJumping = true;
     sarita.classList.add('jump');
     sarita.src = '/assets/css/images/sarita_jump.gif';
 
     setTimeout(() => {
-        sarita.classList.remove('jump');
-        sarita.src = '/assets/css/images/sarita_walking.gif'; // Volta para imagem de caminhada
+        if (isAlive) { // Só muda a imagem se ela ainda estiver viva
+            sarita.classList.remove('jump');
+            sarita.src = '/assets/css/images/sarita_walking.gif'; // Volta para imagem de caminhada
+        }
         isJumping = false;
     }, 700);
 }
@@ -23,11 +26,13 @@ const loop = setInterval(() => {
 
     console.log(saritaPosition);
 
-    if(monsterPosition <= 60 && monsterPosition > 0 && saritaPosition < 60) {
-        sarita.src = '/assets/css/images/sarita_dead.gif' + '?a=' + Math.random();
-        monster.style.animationPlayState = 'paused';
-        clearInterval(loop);
+    if(monsterPosition <= 60 && monsterPosition > 0 && saritaPosition < 60 && isAlive) {
+        sarita.src = '/assets/css/images/sarita_dead.gif';
         monster.style.left = `${monsterPosition}px`;
+        monster.src = '/assets/css/images/png-monstro.png';
+        isAlive = false;
+
+        clearInterval(loop);
     }
 }, 10);
 

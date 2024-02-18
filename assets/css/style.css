@@ -5,27 +5,53 @@
 }
 
 .game-board {
-    width: 80%;
-    height: 500px;
-    border: 1px solid #333;
+    width: 100%;
+    height: 100vh;
     margin: 0 auto;
     position: relative;
+    background: url(/assets/css/images/background-game.png);
+    background-size: 100% 100vh;
 
     /* pra tudo que sair do quadro não aparecer mais na tela */
     overflow: hidden;
 }
 
+.bg-ground {
+    position: absolute;
+    width: 100%;
+    bottom: -40px; 
+}
+
+.bg-trees {
+    position: absolute;
+    width: 100%;
+    bottom: -40px; 
+    animation: trees-animation 20s infinite linear;
+}
+
+.bg-distant-trees {
+    position: absolute;
+    width: 100%;
+    bottom: -40px; 
+    animation: trees-animation 30s infinite linear;
+}
+.bg-bushes {
+    position: absolute;
+    width: 100%;
+    bottom: -40px;  
+    animation: trees-animation 30s infinite linear;
+}
+
 .monster {
     position: absolute;
-
     /* pra o monstro ficar lá embaixo */
-    bottom: 0;
+    bottom: 160px;
     animation: monster-animation 2s infinite linear;
 }
 
 .sarita {
     position: absolute;
-    bottom: 0;
+    bottom: 160px;
 }
 
 .jump {
@@ -48,15 +74,24 @@
         bottom: 0;
     }
     40% {
-        bottom: 100px;
+        bottom: 80px;
     }
     50% {
-        bottom: 110px
+        bottom: 90px
     }
     60% {
         bottom: 80px;
     }
     100% {
         bottom: 0;
+    }
+}
+
+@keyframes trees-animation {
+    from {
+        right: 0;
+    }
+    to {
+        left: 1000;
     }
 }
