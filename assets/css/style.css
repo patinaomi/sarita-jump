@@ -1,7 +1,15 @@
+@import url('https://fonts.googleapis.com/css2?family=Anta&display=swap');
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+}
+
+:root {
+    --branco: #fff;
+    --fonte-titulo: "Anta", sans-serif;
+    --fonte-secundaria: "Anta", sans-serif;
 }
 
 .game-board {
@@ -16,30 +24,35 @@
     overflow: hidden;
 }
 
-.bg-ground {
-    position: absolute;
-    width: 100%;
-    bottom: -40px; 
+.container-contador {
+    margin: 50px 60px;
+    color: var(--branco);
+    display: flex;
+    width: 200px;
+    align-items: baseline;
+    justify-content: space-between;
 }
 
-.bg-trees {
-    position: absolute;
-    width: 100%;
-    bottom: -40px; 
-    animation: trees-animation 20s infinite linear;
+.container-contador h3 {
+    font-size: 44px;
+    font-family: var(--fonte-titulo);
 }
 
-.bg-distant-trees {
-    position: absolute;
-    width: 100%;
-    bottom: -40px; 
-    animation: trees-animation 30s infinite linear;
+.container-contador p {
+    font-size: 35px;
+    font-family: var(--fonte-secundaria);
 }
-.bg-bushes {
+
+.bg-clouds {
     position: absolute;
     width: 100%;
-    bottom: -40px;  
-    animation: trees-animation 30s infinite linear;
+    animation: clouds-animation 30s infinite linear;
+}
+
+.bg-static {
+    position: absolute;
+    width: 100%;
+    bottom: -40px;
 }
 
 .monster {
@@ -71,27 +84,29 @@
 
 @keyframes sarita-jump {
     0% {
-        bottom: 0;
+        bottom: 160px;
     }
     40% {
-        bottom: 80px;
+        bottom: 240px;
     }
     50% {
-        bottom: 90px
+        bottom: 250px;
     }
     60% {
-        bottom: 80px;
+        bottom: 240px;
     }
     100% {
-        bottom: 0;
+        bottom: 160px;
     }
 }
 
-@keyframes trees-animation {
+
+@keyframes clouds-animation {
     from {
-        right: 0;
+        right: -550px;
     }
     to {
-        left: 1000;
+        right: 100%;
     }
+    
 }
